@@ -42,7 +42,7 @@
 				<value>key3,R,datasource</value>
 			</list>
 		</property>
-		<property name="dbName" value="test"></property>
+		<property name="dbName" value="sbrom"></property>
 	</bean>
 	
 	

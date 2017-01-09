@@ -17,7 +17,7 @@ import com.sborm.core.annotation.Database;
  * @author sborm
  * @date 2015-06-22 18:19:47
  */
-@Database("test")
+@Database("sbrom")
 @Table("demo")
 @Component
 public class Demo extends BaseEntity implements Serializable {

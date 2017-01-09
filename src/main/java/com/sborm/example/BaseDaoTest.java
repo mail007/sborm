@@ -27,7 +27,7 @@ import com.sborm.example.dao.ITestDao;
  * 
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "../../../applicationContext.xml")
+@ContextConfiguration(locations = "../../../../resources/applicationContext.xml")
 public class BaseDaoTest {
 
 	@Autowired

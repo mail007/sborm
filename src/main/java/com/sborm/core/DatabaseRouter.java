@@ -99,7 +99,6 @@ public class DatabaseRouter extends ApplicationObjectSupport implements Initiali
 	/**
 	 * 解析配置信息
 	 */
-	@Override
 	public void afterPropertiesSet() throws Exception {
 		ApplicationContextHelper.setApplicationContext(getApplicationContext());
 		// 执行初始化

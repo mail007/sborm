@@ -9,7 +9,6 @@ import com.sborm.example.dao.ITestDao;
 public class TestDao extends BaseDao implements ITestDao {
 	
 
-	@Override
 	public void complexSelect(Object... objects) {
 	}
 }
