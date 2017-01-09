@@ -202,7 +202,7 @@ public class QueryBuilder extends GrammarBuilder {
 		return this;
 	}
 
-	@Override
+
 	public GrammarBuilder build() {
 //			super.sql.append("select ");
 //			// 组装查询字段

@@ -27,7 +27,7 @@ public class GroupBuilder extends GrammarBuilder {
 		return this;
 	}
 	
-	@Override
+
 	public GrammarBuilder build() {
 		super.clear();
 		int size = columns.size();

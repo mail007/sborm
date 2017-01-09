@@ -36,7 +36,7 @@ public class WhereBuilder extends GrammarBuilder {
 		return this;
 	}
 	
-	@Override
+
 	public GrammarBuilder build() {
 		super.clear();
 		int size = condtions.size();

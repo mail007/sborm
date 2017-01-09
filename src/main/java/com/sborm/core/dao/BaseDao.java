@@ -22,7 +22,7 @@ import com.sborm.core.utils.EntityUtil;
 @SuppressWarnings("unchecked")
 public class BaseDao implements IBaseDao {
 	
-	@Override
+
 	public Object get(QueryBuilder queryBuilder) {
 		List<?> list = select(queryBuilder);
 		if (list != null && list.size() > 0) {
@@ -31,34 +31,34 @@ public class BaseDao implements IBaseDao {
 		return null;
 	}
 	
-	@Override
+
 	public Object getByExample(BaseEntity entity) {
 		return getByExample(entity, QueryMode.AND);
 	}
 	
-	@Override
+
 	public Object getByExample(BaseEntity entity, QueryMode mode) {
 		return get(entity.getQueryBuilder().setQueryMode(mode));
 	}
 	
-	@Override
+
 	public List<?> select(QueryBuilder queryBuilder) {
 		List<?> list = DatabaseRouterFactory.getReader(queryBuilder.getEntity()).query(SQL.select(queryBuilder),
 				queryBuilder.getParameters().toArray(), EntityContainer.getRowMapper(queryBuilder.getEntity()));
 		return list;
 	}
 	
-	@Override
+
 	public List<?> selectByExample(BaseEntity entity) {
 		return selectByExample(entity, QueryMode.AND);
 	}
 	
-	@Override
+
 	public List<?> selectByExample(BaseEntity entity, QueryMode mode) {
 		return select(entity.getQueryBuilder().setQueryMode(mode));
 	}
 	
-	@Override
+
 	public void select(QueryBuilder queryBuilder, PageResult<?> pageResult) {
 		// 组织统计builder
 		QueryBuilder countBuilder = new QueryBuilder(queryBuilder.getEntity());
@@ -72,7 +72,7 @@ public class BaseDao implements IBaseDao {
 		pageResult.setResults(list);
 	}
 	
-	@Override
+
 	public PageResult<?> select(QueryBuilder queryBuilder, int pageIndex, int pageSize) {
 		QueryBuilder countBuilder = new QueryBuilder(queryBuilder.getEntity());
 		countBuilder.setWhereBuilder(queryBuilder.getWhereBuilder());
@@ -84,17 +84,17 @@ public class BaseDao implements IBaseDao {
 		return pageResult;
 	}
 	
-	@Override
+
 	public PageResult<?> selectByExample(BaseEntity entity, int pageIndex, int pageSize) {
 		return selectByExample(entity, QueryMode.AND, pageIndex, pageSize);
 	}
 	
-	@Override
+
 	public PageResult<?> selectByExample(BaseEntity entity, QueryMode mode, int pageIndex, int pageSize) {
 		return select(entity.getQueryBuilder().setQueryMode(mode), pageIndex, pageSize);
 	}
 
-	@Override
+
 	public int insert(BaseEntity entity) {
 		Map<String, Object> pojo = EntityUtil.getEntityInfo(entity);
 		Object[][] buf = EntityUtil.getPropertyAndValue(pojo);
@@ -103,7 +103,7 @@ public class BaseDao implements IBaseDao {
 		return c;
 	}
 	
-	@Override
+
 	public int insertIgnore(BaseEntity entity) {
 		Map<String, Object> pojo = EntityUtil.getEntityInfo(entity);
 		Object[][] buf = EntityUtil.getPropertyAndValue(pojo);
@@ -112,7 +112,7 @@ public class BaseDao implements IBaseDao {
 		return c;
 	}
 	
-	@Override
+
 	public int insertDelayed(BaseEntity entity) {
 		Map<String, Object> pojo = EntityUtil.getEntityInfo(entity);
 		Object[][] buf = EntityUtil.getPropertyAndValue(pojo);
@@ -121,7 +121,7 @@ public class BaseDao implements IBaseDao {
 		return c;
 	}
 	
-	@Override
+
 	public int replace(BaseEntity entity) {
 		Map<String, Object> pojo = EntityUtil.getEntityInfo(entity);
 		Object[][] buf = EntityUtil.getPropertyAndValue(pojo);
@@ -130,7 +130,7 @@ public class BaseDao implements IBaseDao {
 		return c;
 	}
 
-	@Override
+
 	public int relpaceDelayed(BaseEntity entity) {
 		Map<String, Object> pojo = EntityUtil.getEntityInfo(entity);
 		Object[][] buf = EntityUtil.getPropertyAndValue(pojo);
@@ -139,7 +139,7 @@ public class BaseDao implements IBaseDao {
 		return c;
 	}
 	
-	@Override
+
 	public int update(QueryBuilder queryBuilder) {
 		Map<String, Object> pojo = EntityUtil.getEntityInfo(queryBuilder.getEntity());
 		Map<String, Object> fields = EntityUtil.getColumnAndValueWithoutNull(pojo);
@@ -148,17 +148,17 @@ public class BaseDao implements IBaseDao {
 		return c;
 	}
 	
-	@Override
+
 	public int updateByExample(BaseEntity entity) {
 		return updateByExample(entity, QueryMode.AND);
 	}
 	
-	@Override
+
 	public int updateByExample(BaseEntity entity, QueryMode mode) {
 		return update(entity.getQueryBuilder().setQueryMode(mode));
 	}
 	
-	@Override
+
 	public int updateIncrement(String column, int incr, QueryBuilder queryBuilder) {
 		String sql = SQL.updateIncrement(column, incr, queryBuilder);
 		int c = DatabaseRouterFactory.getWriter(queryBuilder.getEntity()).update(sql, queryBuilder.getParameters().toArray());
@@ -166,36 +166,36 @@ public class BaseDao implements IBaseDao {
 	}
 	
 
-	@Override
+
 	public int delete(QueryBuilder queryBuilder) {
 		String sql = SQL.delete(queryBuilder);
 		int c = DatabaseRouterFactory.getWriter(queryBuilder.getEntity()).update(sql, queryBuilder.getParameters().toArray());
 		return c;
 	}
 	
-	@Override
+
 	public int deleteByExample(BaseEntity entity) {
 		return deleteByExample(entity, QueryMode.AND);
 	}
 	
-	@Override
+
 	public int deleteByExample(BaseEntity entity, QueryMode mode) {
 		return delete(entity.getQueryBuilder().setQueryMode(mode));
 	}
 
-	@Override
+
 	public long count(QueryBuilder queryBuilder) {
 		String sql = SQL.count(queryBuilder);
 		long c = DatabaseRouterFactory.getReader(queryBuilder.getEntity()).queryForLong(sql, queryBuilder.getParameters().toArray());
 		return c;
 	}
 	
-	@Override
+
 	public long countByExample(BaseEntity entity) {
 		return countByExample(entity, QueryMode.AND);
 	}
 	
-	@Override
+
 	public long countByExample(BaseEntity entity, QueryMode mode) {
 		return count(entity.getQueryBuilder().setQueryMode(mode));
 	}

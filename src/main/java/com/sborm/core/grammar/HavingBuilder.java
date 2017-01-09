@@ -38,7 +38,7 @@ public class HavingBuilder extends GrammarBuilder {
 	 * @param buildType 条件组装方式，1：所有and 2：所有or
 	 * @return
 	 */
-	@Override
+
 	public GrammarBuilder build() {
 		super.clear();
 		int size = condtions.size();

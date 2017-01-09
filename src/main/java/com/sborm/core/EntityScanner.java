@@ -57,7 +57,7 @@ public class EntityScanner implements InitializingBean {
 		return result;
 	}
 
-	@Override
+
 	public void afterPropertiesSet() throws Exception {
 		// TODO Auto-generated method stub
 		

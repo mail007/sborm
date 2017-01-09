@@ -23,7 +23,7 @@ public class PageBuilder extends GrammarBuilder {
 		this.pageSize = pageSize;
 	}
 
-	@Override
+
 	public GrammarBuilder build() {
 		super.clear();
 		super.sql.append(" limit ?,?");
